@@ -1,0 +1,33 @@
+{
+  "name": "css-snowfall",
+  "version": "1.0.0",
+  "description": "Pure CSS snowfall effect",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/prefectionist/css-snowfall"
+  },
+  "keywords": [],
+  "author": "prefectionist",
+  "license": "MIT",
+  "dependencies": {
+    "autoprefixer": "^9.7.3",
+    "cssnano": "^4.1.10",
+    "gulp": "^4.0.2",
+    "gulp-imagemin": "^6.2.0",
+    "gulp-newer": "^1.4.0",
+    "gulp-noop": "^1.0.0",
+    "gulp-postcss": "^8.0.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-size": "^3.0.0",
+    "gulp-sourcemaps": "^2.6.5",
+    "postcss-assets": "^5.0.0",
+    "usedcss": "^1.0.7"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.26.7"
+  }
+}
