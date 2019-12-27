@@ -1,0 +1,14 @@
+@mixin generateFlakes($flakeCount) {
+  $shadows: ();
+  $i: 1;
+  $x: ($i + random(500)) + px;
+  $y: ($i + random(500)) + px;
+  @debug($x);
+  @debug($y);
+  @for $i from 1 through $flakeCount {
+    // $x $y 0 0 $snow2;
+    $shadows: append($shadows, (($i + random(500))+px) (($i + random(500))+px) 0 0 $snow2, comma);
+  }
+
+  box-shadow: $shadows;
+}

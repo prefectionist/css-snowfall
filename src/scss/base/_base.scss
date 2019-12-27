@@ -24,7 +24,7 @@ body {
   // }
 
   .ground {
-    position: absolute;
+    position: fixed;
     bottom: 0;
     width: 100%;
     height: 15%;
@@ -46,7 +46,7 @@ body {
       left: 100px;
       background-color: transparent;
 
-      will-change: transform;
+      will-change: transform; // hint to the browser on what elements will be animated
       animation-name: snowingX;
       animation-duration: $animation-time;
       animation-iteration-count: infinite;
@@ -55,16 +55,17 @@ body {
       &::after {
         content: '';
         display: block;
-        will-change: transform, opacity;
+        will-change: transform, opacity, box-shadow;
         border-radius: 50%;
         width: 10px;
         height: 10px;
         background-color: $snow1;
         opacity: .1;
 
-        box-shadow:
-          -5px -8px 0 0 $snow2,
-          8px -5px 0 0 $snow3;
+        @include generateFlakes(10);
+        // box-shadow: generateFlakes(5);
+          // -5px -8px 0 0 $snow2,
+          // 8px -5px 0 0 $snow3;
 
         animation-name: snowingY;
         animation-duration: $animation-time;

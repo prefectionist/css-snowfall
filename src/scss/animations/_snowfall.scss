@@ -26,35 +26,36 @@
   0% {
     background-color: $snow1;
     animation-timing-function: ease-out; // cubic-bezier(0.02, 0.01, 0.21, 1);
-    transform: translateY(0px);
+    transform: translateY(-2vh) rotate(0deg);
+    // skew, rotate
 
     opacity: 1;
   }
   10% {
     background-color: $snow1;
     animation-timing-function: ease-out; // cubic-bezier(0.02, 0.01, 0.21, 1);
-    transform: translateY(100px);
+    transform: translateY(10vh) rotate(3deg);
 
     opacity: 1;
   }
   50% {
     background-color: $snow2;
     animation-timing-function: ease-in; // cubic-bezier(0.02, 0.01, 0.21, 1);
-    transform: translateY(500px);
+    transform: translateY(50vh) rotate(-7deg);
 
     opacity: .5;
   }
   75% {
     background-color: $snow3;
     animation-timing-function: ease-out; // cubic-bezier(0.02, 0.01, 0.21, 1);
-    transform: translateY(750px);
+    transform: translateY(75vh) rotate(8deg);
 
     opacity: .7;
   }
   95% {
     background-color: $snow1;
     animation-timing-function: ease-in; // cubic-bezier(0.02, 0.01, 0.21, 1);
-    transform: translateY(950px);
+    transform: translateY(95vh) rotate(2deg);
 
     opacity: 0;
   }
