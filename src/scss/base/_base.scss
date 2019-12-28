@@ -42,8 +42,9 @@ body {
 
     .flake {
       position: absolute;
-      top: 100px;
-      left: 100px;
+      // top: 100px;
+      // left: 100px;
+      @include randomizeFlake();
       background-color: transparent;
 
       will-change: transform; // hint to the browser on what elements will be animated
@@ -62,7 +63,7 @@ body {
         background-color: $snow1;
         opacity: .1;
 
-        @include generateFlakes(10);
+        @include generateMoreFlakes(5);
         // box-shadow: generateFlakes(5);
           // -5px -8px 0 0 $snow2,
           // 8px -5px 0 0 $snow3;

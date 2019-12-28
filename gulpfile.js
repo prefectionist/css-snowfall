@@ -88,6 +88,20 @@
 	}
 	exports.css = gulp.series(images, css);
 
+	/** JS Task **/
+	const jsConfig = {
+		src: dir.src + 'js/**/*',
+		watch: dir.src + 'js/**/*',
+		build: dir.build + 'js/',
+	};
+
+	function js() {
+		return gulp.src(jsConfig.src)
+		.pipe(gulp.dest(jsConfig.build))
+		.pipe(browsersync ? browsersync.reload({stream: true}) : noop());
+	}
+	exports.js = js
+
 	/*** server task (private) ***/
 	const syncConfig = {
 		server: {
@@ -112,10 +126,13 @@
 		//CSS changes
 		gulp.watch(cssConfig.watch, css);
 
+		//JS changes
+		gulp.watch(jsConfig.watch, js);
+
 		done();
 	}
 
 	/*** default task ***/
-	exports.default = gulp.series(exports.css, watch, server);
+	exports.default = gulp.series(exports.css, exports.js, watch, server);
 
 })();
