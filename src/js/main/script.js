@@ -3,7 +3,8 @@ let flakeCount = 10;
 
 let newFlake = null;
 for (var i=0; i<flakeCount; i++) {
-  newFlake = document.createElement('div');
-  newFlake.className += 'flake-'+i;
-  console.log(newFlake);
+  this.newFlake = document.createElement('div');
+  this.newFlake.className += 'flake-'+i;
+  console.log(this.newFlake);
+  snowfall.append(this.newFlake);
 }
