@@ -1,4 +1,53 @@
-@mixin generateMoreFlakes($flakes) {
+// /base/_mixins.scss partial
+
+@mixin generateFlakes($numFlakes)
+{
+  @debug($numFlakes);
+
+  @for $i from 0 through $numFlakes {
+
+    @debug('.flake-#{$i}');
+
+    .flake-#{$i} {
+      position: absolute;
+      @include randomizeFlake();
+      background-color: transparent;
+      // background-color: orange;
+
+      will-change: transform; // hint to the browser on what elements will be animated
+      animation-name: snowingX;
+      animation-duration: $animation-time;
+      animation-iteration-count: infinite;
+      animation-timing-function: ease-out;
+
+      &::after {
+        content: '';
+        display: block;
+        will-change: transform, opacity, box-shadow;
+        border-radius: 50%;
+        width: 10px;
+        height: 10px;
+        background-color: $snow1;
+        opacity: .1;
+
+        // @include generateExtraFlakes(5);
+        // box-shadow: generateFlakes(5);
+          // -5px -8px 0 0 $snow2,
+          // 8px -5px 0 0 $snow3;
+
+        animation-name: snowingY;
+        animation-duration: $animation-time;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease-in;
+      }
+    }
+
+  }
+
+}
+
+@mixin generateExtraFlakes($flakes)
+{
   $moreFlakes: ();
   $i: 1;
 
@@ -6,8 +55,8 @@
     // $x $y 0 0 $snow2;
     $x: ($i + random(200) - 100) + px;
     $y: ($i + random(500)) + px;
-    @debug($x);
-    @debug($y);
+    // @debug($x);
+    // @debug($y);
     $moreFlakes: append($moreFlakes, (($i + random(500))+px) (($i + random(500))+px) 0 0 $snow2, comma);
   }
 

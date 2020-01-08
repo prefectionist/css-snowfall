@@ -1,5 +1,6 @@
 let snowfall = document.getElementsByClassName('snow-zone')[0];
-let flakeCount = 10;
+console.log(snowfall);
+let flakeCount = 200;
 
 let newFlake = null;
 for (var i=0; i<flakeCount; i++) {

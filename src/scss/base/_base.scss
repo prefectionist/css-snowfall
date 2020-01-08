@@ -5,9 +5,10 @@ body {
   font-size: $font-size;
   color: #444;
   background-color: #555;
+  margin: 0;
 
   h1 {
-    display: inline;
+    margin: 1rem;
     position: relative;
     color: #161a42;
     z-index: 100;
@@ -17,7 +18,7 @@ body {
   //   position: absolute;
   //   top: 0;
   //   width: 100%;
-  //   height: 75%;
+  //   height: 85%;
   //   background: rgb(94,158,255);
   //   background: linear-gradient(180deg, rgba(94,158,255,1) 0%, rgba(250,233,249,1) 100%);
   //   z-index: 1;
@@ -29,7 +30,7 @@ body {
     width: 100%;
     height: 15%;
     background: rgb(11,143,70); // legacy fallback
-    background: linear-gradient(180deg, rgba(11,143,70,1) 0%, rgba(242,193,107,1) 22%, rgba(255,243,222,1) 40%);
+    background: linear-gradient(180deg, rgba(11,143,70,1) 0%, rgba(242,193,107,1) 14%, rgba(60,39,1,1) 74%);
     z-index: 1;
   }
 
@@ -39,40 +40,6 @@ body {
     width: 100%;
     height: 100%;
 
-
-    .flake {
-      position: absolute;
-      // top: 100px;
-      // left: 100px;
-      @include randomizeFlake();
-      background-color: transparent;
-
-      will-change: transform; // hint to the browser on what elements will be animated
-      animation-name: snowingX;
-      animation-duration: $animation-time;
-      animation-iteration-count: infinite;
-      animation-timing-function: ease-out;
-
-      &::after {
-        content: '';
-        display: block;
-        will-change: transform, opacity, box-shadow;
-        border-radius: 50%;
-        width: 10px;
-        height: 10px;
-        background-color: $snow1;
-        opacity: .1;
-
-        @include generateMoreFlakes(5);
-        // box-shadow: generateFlakes(5);
-          // -5px -8px 0 0 $snow2,
-          // 8px -5px 0 0 $snow3;
-
-        animation-name: snowingY;
-        animation-duration: $animation-time;
-        animation-iteration-count: infinite;
-        animation-timing-function: ease-in;
-      }
-    }
+    @include generateFlakes(1000);
   }
 }

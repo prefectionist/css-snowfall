@@ -62,9 +62,10 @@
 			errLogToConsole: true
 		},
 		postCSS: [
-			require('usedcss')({
-				html: ['index.html']
-			}),
+			// require('usedcss')({
+			// 	html: ['index.html'],
+			// 	ignoreRegexp: ['/flakes-[0-9]+/']
+			// }),
 			require('postcss-assets')({
 				loadPaths: ['images/'],
 				basePath: dir.build
