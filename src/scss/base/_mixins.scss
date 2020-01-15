@@ -1,5 +1,8 @@
 // /base/_mixins.scss partial
 
+/**
+ * Gernerate a unique 'flake' css for each of the flakes on the page
+ **/
 @mixin generateFlakes($numFlakes)
 {
   @debug($numFlakes);
@@ -30,10 +33,7 @@
         background-color: $snow1;
         opacity: .1;
 
-        // @include generateExtraFlakes(5);
-        // box-shadow: generateFlakes(5);
-          // -5px -8px 0 0 $snow2,
-          // 8px -5px 0 0 $snow3;
+        @include generateExtraFlakes(2);
 
         animation-name: snowingY;
         animation-duration: $animation-time;
@@ -46,6 +46,11 @@
 
 }
 
+/**
+ * Appending additional box-shadows onto the original 'flake' to simulate a more
+ * 'dense' snowfall.  Depending on the number of initial flakes, large number will tend to slow down the browser.
+ * todo: randomize flake color and opacity
+ **/
 @mixin generateExtraFlakes($flakes)
 {
   $moreFlakes: ();
@@ -53,16 +58,23 @@
 
   @for $i from 1 through $flakes {
     // $x $y 0 0 $snow2;
-    $x: ($i + random(200) - 100) + px;
-    $y: ($i + random(500)) + px;
-    // @debug($x);
-    // @debug($y);
-    $moreFlakes: append($moreFlakes, (($i + random(500))+px) (($i + random(500))+px) 0 0 $snow2, comma);
+    $x: (random(201)-101) + px;
+    $y: (random(201)-101) + px;
+    $blur: random(10)-6 + px;
+    $spread: random(10)-6 + px;
+    @debug($x);
+    @debug($y);
+    @debug($blur);
+    @debug($spread);
+    $moreFlakes: append($moreFlakes, $x $y $blur $spread $snow2, comma);
   }
 
   box-shadow: $moreFlakes;
 }
 
+/**
+ * Randomize the starting location of each flake above the top:0 mark..
+ **/
 @mixin randomizeFlake() {
   top: (0 - random(100)) + vw;
   left: random(100) + vw;
