@@ -1,24 +1,16 @@
 @keyframes snowingX {
   0% {
     animation-timing-function: ease-in; // cubic-bezier(0.02, 0.01, 0.21, 1);
-    transform: translateX(-5px);
-  }
-  10% {
-    animation-timing-function: ease-in; // cubic-bezier(0.02, 0.01, 0.21, 1);
-    transform: translateX(-2px);
+    transform: translateX(random($base)+px);
   }
   50% {
     // background-color: $snow2;
-    animation-timing-function: ease-out; // cubic-bezier(0.02, 0.01, 0.21, 1);
-    transform: translateX(4px);
-  }
-  75% {
     animation-timing-function: ease-in; // cubic-bezier(0.02, 0.01, 0.21, 1);
-    transform: translateX(-1px);
+    transform: translateX(random($base)+px);
   }
   95% {
-    animation-timing-function: ease-out; // cubic-bezier(0.02, 0.01, 0.21, 1);
-    transform: translateX(-5px);
+    animation-timing-function: ease-in; // cubic-bezier(0.02, 0.01, 0.21, 1);
+    transform: translateX(random($base)+px);
   }
 }
 
@@ -31,30 +23,16 @@
 
     opacity: 1;
   }
-  10% {
-    background-color: $snow1;
-    animation-timing-function: ease-out; // cubic-bezier(0.02, 0.01, 0.21, 1);
-    transform: translateY(10vh) rotate(3deg);
-
-    opacity: 1;
-  }
   50% {
     background-color: $snow2;
-    animation-timing-function: ease-in; // cubic-bezier(0.02, 0.01, 0.21, 1);
+    animation-timing-function: ease-out; // cubic-bezier(0.02, 0.01, 0.21, 1);
     transform: translateY(50vh) rotate(-7deg);
 
     opacity: .5;
   }
-  75% {
-    background-color: $snow3;
-    animation-timing-function: ease-out; // cubic-bezier(0.02, 0.01, 0.21, 1);
-    transform: translateY(75vh) rotate(8deg);
-
-    opacity: .7;
-  }
-  95% {
+  99% {
     background-color: $snow1;
-    animation-timing-function: ease-in; // cubic-bezier(0.02, 0.01, 0.21, 1);
+    animation-timing-function: ease-out; // cubic-bezier(0.02, 0.01, 0.21, 1);
     transform: translateY(95vh) rotate(2deg);
 
     opacity: 0;

@@ -15,7 +15,6 @@
       position: absolute;
       @include randomizeFlake();
       background-color: transparent;
-      // background-color: orange;
 
       will-change: transform; // hint to the browser on what elements will be animated
       animation-name: snowingX;
@@ -28,8 +27,8 @@
         display: block;
         will-change: transform, opacity, box-shadow;
         border-radius: 50%;
-        width: 10px;
-        height: 10px;
+        width: random(5)+6 + px;
+        height: random(5)+6 + px;
         background-color: $snow1;
         opacity: .1;
 
@@ -57,11 +56,11 @@
   $i: 1;
 
   @for $i from 1 through $flakes {
-    // $x $y 0 0 $snow2;
+    // Randomize the position of additional flakes
     $x: (random(201)-101) + px;
     $y: (random(201)-101) + px;
-    $blur: random(10)-6 + px;
-    $spread: random(10)-6 + px;
+    $blur: random(5)+1 + px;  // Adjusts the 'fuzziness' of each additional flake
+    $spread: random(10)-6 + px; // Adjusts the size of each additional flake
     @debug($x);
     @debug($y);
     @debug($blur);
