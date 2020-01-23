@@ -1,39 +1,61 @@
 @keyframes snowingX {
-  0% {
+  from {
     animation-timing-function: ease-in; // cubic-bezier(0.02, 0.01, 0.21, 1);
-    transform: translateX(random($base)+px);
+    // transform: translateX(random(100)+px);
   }
-  50% {
-    // background-color: $snow2;
+  to {
     animation-timing-function: ease-in; // cubic-bezier(0.02, 0.01, 0.21, 1);
-    transform: translateX(random($base)+px);
+    transform: translateX(random(200)+px);
   }
-  95% {
+}
+
+@keyframes snowingXAlt {
+  from {
     animation-timing-function: ease-in; // cubic-bezier(0.02, 0.01, 0.21, 1);
-    transform: translateX(random($base)+px);
+    // transform: translateX(random(100)+px);
+  }
+  to {
+    animation-timing-function: ease-in; // cubic-bezier(0.02, 0.01, 0.21, 1);
+    transform: translateX(random(200)+px);
   }
 }
 
 @keyframes snowingY {
-  0% {
-    background-color: $snow1;
+  from {
     animation-timing-function: ease-out; // cubic-bezier(0.02, 0.01, 0.21, 1);
-    transform: translateY(-2vh) rotate(0deg);
-    // skew, rotate
+    background-color: $snow1;
+    transform: translateY((0 - random(100)) + vh) rotate(0deg);
 
-    opacity: 1;
+    opacity: random(10)/10 + $baseOpacity;
   }
   50% {
-    background-color: $snow2;
-    animation-timing-function: ease-out; // cubic-bezier(0.02, 0.01, 0.21, 1);
-    transform: translateY(50vh) rotate(-7deg);
-
-    opacity: .5;
+    opacity: random(10)/10 + $baseOpacity;
   }
-  99% {
-    background-color: $snow1;
+  to {
     animation-timing-function: ease-out; // cubic-bezier(0.02, 0.01, 0.21, 1);
-    transform: translateY(95vh) rotate(2deg);
+    background-color: $snow1;
+    transform: translateY(100vh) rotate(random(360) + deg);
+
+    opacity: 0;
+  }
+}
+
+@keyframes snowingYAlt {
+  from {
+    animation-timing-function: ease-out; // cubic-bezier(0.02, 0.01, 0.21, 1);
+    background-color: $snow1;
+    transform: translateY((0 - random(100)) + vh) rotate(0deg);
+
+    // skew, rotate
+    opacity: random(10)/10 + $baseOpacity;
+  }
+  50% {
+    opacity: random(10)/10 + $baseOpacity;
+  }
+  to {
+    animation-timing-function: ease-out; // cubic-bezier(0.02, 0.01, 0.21, 1);
+    background-color: $snow1;
+    transform: translateY(200vh) rotate(2deg);
 
     opacity: 0;
   }

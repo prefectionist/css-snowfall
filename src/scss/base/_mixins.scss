@@ -7,6 +7,9 @@
 {
   @debug($numFlakes);
 
+  $xAnimations: ('snowingX', 'snowingXAlt');
+  $yAnimations: ('snowingY', 'snowingYAlt');
+
   @for $i from 0 through $numFlakes {
 
     @debug('.flake-#{$i}');
@@ -17,8 +20,8 @@
       background-color: transparent;
 
       will-change: transform; // hint to the browser on what elements will be animated
-      animation-name: snowingX;
-      animation-duration: $animation-time;
+      animation-name: nth($xAnimations, random(length($xAnimations)));
+      animation-duration: $animation-time-base + random(5) + s;
       animation-iteration-count: infinite;
       animation-timing-function: ease-out;
 
@@ -34,15 +37,13 @@
 
         @include generateExtraFlakes(2);
 
-        animation-name: snowingY;
-        animation-duration: $animation-time;
+        animation-name: nth($yAnimations, random(length($yAnimations)));
+        animation-duration: $animation-time-base + random(5) + s;
         animation-iteration-count: infinite;
         animation-timing-function: ease-in;
       }
     }
-
   }
-
 }
 
 /**
@@ -72,7 +73,7 @@
 }
 
 /**
- * Randomize the starting location of each flake above the top:0 mark..
+ * Randomize the starting location of each flake above the top:0 mark.
  **/
 @mixin randomizeFlake() {
   top: (0 - random(100)) + vw;
